@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Social Media Phishing - Educational Alert{% endblock %}
+
+{% block content %}
+<div class="education-container">
+    <div class="alert-header">
+        <div class="warning-icon">⚠️</div>
+        <h1>STOP! This was a {{ platform|title }} phishing simulation</h1>
+    </div>
+    
+    <div class="education-content">
+        <div class="what-happened">
+            <h2>What just happened?</h2>
+            <p>You entered your credentials ({{ email }}) into a fake {{ platform|title }} login page. This is exactly how social media phishing works!</p>
+        </div>
+        
+        <div class="social-red-flags">
+            <h2>{{ platform|title }} phishing red flags:</h2>
+            <ul>
+                <li>🌐 <strong>Wrong URL:</strong> Real {{ platform|title }} uses official domains</li>
+                <li>📧 <strong>Suspicious source:</strong> How did you get to this login page?</li>
+                <li>🔒 <strong>Missing security features:</strong> No proper SSL indicators</li>
+                <li>📱 <strong>Unusual login flow:</strong> Different from the official app/website</li>
+            </ul>
+        </div>
+        
+        <div class="social-protection">
+            <h2>How to stay safe on social media:</h2>
+            <ol>
+                <li><strong>Always use official apps</strong> - Download from official app stores</li>
+                <li><strong>Type URLs manually</strong> - Don't click links in suspicious messages</li>
+                <li><strong>Enable 2FA</strong> - All major platforms support two-factor authentication</li>
+                <li><strong>Check login notifications</strong> - Review login alerts from the platform</li>
+                <li><strong>Use strong passwords</strong> - Unique passwords for each social media account</li>
+            </ol>
+        </div>
+        
+        <div class="learn-more">
+            <div class="action-buttons">
+                <a href="{{ url_for('tips') }}" class="btn btn-primary">Learn More Security Tips</a>
+                <a href="{{ url_for('quiz') }}" class="btn btn-secondary">Take Security Quiz</a>
+                <a href="{{ url_for('awareness_home') }}" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

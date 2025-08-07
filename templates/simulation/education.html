@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Security Alert - Educational Moment{% endblock %}
+
+{% block content %}
+<div class="education-container">
+    <div class="alert-header">
+        <div class="warning-icon">⚠️</div>
+        <h1>STOP! This was a phishing simulation</h1>
+    </div>
+    
+    <div class="education-content">
+        <div class="what-happened">
+            <h2>What just happened?</h2>
+            <p>You just entered your credentials ({{ email }}) into a simulated phishing website. In a real attack, your information would now be compromised.</p>
+        </div>
+        
+        <div class="red-flags">
+            <h2>Red flags you may have missed:</h2>
+            <ul>
+                <li>📧 <strong>Suspicious URL:</strong> Check if the URL matches the legitimate site</li>
+                <li>🔒 <strong>Missing HTTPS:</strong> Look for the lock icon in the address bar</li>
+                <li>📝 <strong>Poor design:</strong> Legitimate sites usually have consistent branding</li>
+                <li>⚡ <strong>Urgency tactics:</strong> "Verify now or lose access" creates pressure</li>
+                <li>🔗 <strong>Unexpected links:</strong> Did you expect to receive this login request?</li>
+            </ul>
+        </div>
+        
+        <div class="protection-tips">
+            <h2>How to protect yourself:</h2>
+            <ol>
+                <li><strong>Always verify URLs</strong> - Type them manually or use bookmarks</li>
+                <li><strong>Enable 2FA</strong> - Two-factor authentication adds security</li>
+                <li><strong>Think before you click</strong> - Pause and assess suspicious emails</li>
+                <li><strong>Use a password manager</strong> - It won't autofill on fake sites</li>
+                <li><strong>Keep software updated</strong> - Updates include security patches</li>
+            </ol>
+        </div>
+        
+        <div class="learn-more">
+            <h2>Learn more about phishing protection</h2>
+            <div class="action-buttons">
+                <a href="{{ url_for('tips') }}" class="btn btn-primary">Security Tips</a>
+                <a href="{{ url_for('videos') }}" class="btn btn-secondary">Watch Videos</a>
+                <a href="{{ url_for('quiz') }}" class="btn btn-secondary">Take Quiz</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

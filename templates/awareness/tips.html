@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Protection Tips</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/awareness.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🛡️ PhishGuard</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('awareness_home') }}">Home</a></li>
+                <li><a href="{{ url_for('tips') }}" class="active">Security Tips</a></li>
+                <li><a href="{{ url_for('videos') }}">Videos</a></li>
+                <li><a href="{{ url_for('quiz') }}">Quiz</a></li>
+                <li><a href="{{ url_for('simulation_login') }}" class="simulation-link">Try Simulation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="tips-main">
+        <section class="tips-hero">
+            <div class="container">
+                <h1>Essential Phishing Protection Tips</h1>
+                <p>Learn how to identify and protect yourself from phishing attacks</p>
+            </div>
+        </section>
+
+        <section class="tips-content">
+            <div class="container">
+                <div class="tips-categories">
+                    <div class="category">
+                        <h2>🔍 Email Red Flags</h2>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <h4>Suspicious sender addresses</h4>
+                                <p>Check for misspellings, unusual domains, or addresses that don't match the claimed organization.</p>
+                                <div class="example">
+                                    <strong>❌ Suspicious:</strong> security@g00gle.com<br>
+                                    <strong>✅ Legitimate:</strong> noreply@accounts.google.com
+                                </div>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Urgent or threatening language</h4>
+                                <p>"Your account will be suspended in 24 hours!" or "Immediate action required!"</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Generic greetings</h4>
+                                <p>"Dear Customer" instead of your actual name when the company should know you.</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Poor spelling and grammar</h4>
+                                <p>Legitimate companies usually have professional communication standards.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h2>🔗 Link Safety</h2>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <h4>Hover before clicking</h4>
+                                <p>Hover over links to see the actual destination URL before clicking.</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Check for URL shorteners</h4>
+                                <p>Be cautious of bit.ly, tinyurl.com, or other shortened URLs that hide the real destination.</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Look for HTTPS</h4>
+                                <p>Legitimate sites handling sensitive data should use HTTPS (look for the lock icon).</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Verify domain names</h4>
+                                <p>PayPal.com vs PayPaI.com (with an 'I' instead of 'l')</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h2>🛡️ Protection Strategies</h2>
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <h4>Use two-factor authentication (2FA)</h4>
+                                <p>Even if your password is stolen, 2FA provides an additional security layer.</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Keep software updated</h4>
+                                <p>Updates often include security patches that protect against new threats.</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Use a password manager</h4>
+                                <p>Password managers won't auto-fill credentials on fake websites.</p>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <h4>Verify independently</h4>
+                                <p>When in doubt, contact the organization directly through their official website or phone number.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checklist-section">
+                    <h2>📋 Pre-Click Checklist</h2>
+                    <div class="checklist">
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span>Did I expect this email?</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span>Is the sender's email address legitimate?</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span>Does the message use my actual name?</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span>Is the tone professional and not urgent/threatening?</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span>Have I hovered over links to check destinations?</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span>Can I verify this request through official channels?</span>
+                        </label>
+                    </div>
+                    <p class="checklist-note"><strong>If you can't check all boxes, be extra cautious!</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

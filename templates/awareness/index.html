@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Awareness Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/awareness.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🛡️ PhishWatch</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('awareness_home') }}" class="active">Home</a></li>
+                <li><a href="{{ url_for('tips') }}">Security Tips</a></li>
+                <li><a href="{{ url_for('videos') }}">Videos</a></li>
+                <li><a href="{{ url_for('quiz') }}">Quiz</a></li>
+                <li class="dropdown">
+                    <a href="#" class="simulation-dropdown">Try Simulations ▼</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('simulation_login') }}">Gmail Phishing</a>
+                        <a href="{{ url_for('social_media_simulation', platform='facebook') }}">Facebook Phishing</a>
+                        <a href="{{ url_for('social_media_simulation', platform='linkedin') }}">LinkedIn Phishing</a>
+                        <a href="{{ url_for('urgency_attack') }}">Urgent Alert</a>
+                        <a href="{{ url_for('spear_phishing', target='employee') }}">Spear Phishing</a>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Stay Safe from Phishing Attacks</h1>
+            <p>Learn to identify and protect yourself from cybercriminals who try to steal your personal information through deceptive emails and websites.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">3.4B</span>
+                    <span class="stat-label">Phishing emails sent daily</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">Of data breaches start with phishing</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">$4.9M</span>
+                    <span class="stat-label">Average cost of a data breach</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Interactive Phishing Simulations Section -->
+        <section class="simulation-showcase">
+            <div class="container">
+                <h2>🎯 Interactive Phishing Simulations</h2>
+                <p>Experience different types of phishing attacks in a safe environment</p>
+                
+                <div class="simulation-grid">
+                    <div class="simulation-card gmail">
+                        <div class="sim-icon">📧</div>
+                        <h3>Gmail Phishing</h3>
+                        <p>Classic email login phishing attack simulation</p>
+                        <a href="{{ url_for('simulation_login') }}" class="btn btn-danger">Try Gmail Simulation</a>
+                    </div>
+                    
+                    <div class="simulation-card facebook">
+                        <div class="sim-icon">📘</div>
+                        <h3>Facebook Phishing</h3>
+                        <p>Social media credential harvesting simulation</p>
+                        <a href="{{ url_for('social_media_simulation', platform='facebook') }}" class="btn btn-primary">Try Facebook Simulation</a>
+                    </div>
+                    
+                    <div class="simulation-card linkedin">
+                        <div class="sim-icon">💼</div>
+                        <h3>LinkedIn Phishing</h3>
+                        <p>Professional network targeted attack</p>
+                        <a href="{{ url_for('social_media_simulation', platform='linkedin') }}" class="btn btn-info">Try LinkedIn Simulation</a>
+                    </div>
+                    
+                    <div class="simulation-card urgent">
+                        <div class="sim-icon">🚨</div>
+                        <h3>Urgent Security Alert</h3>
+                        <p>High-pressure attack with countdown timers</p>
+                        <a href="{{ url_for('urgency_attack') }}" class="btn btn-warning">Try Urgent Alert</a>
+                    </div>
+                    
+                    <div class="simulation-card spear">
+                        <div class="sim-icon">🎯</div>
+                        <h3>Spear Phishing</h3>
+                        <p>Personalized targeted attack simulation</p>
+                        <a href="{{ url_for('spear_phishing', target='employee') }}" class="btn btn-dark">Try Spear Phishing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Comprehensive Phishing Protection</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Interactive Simulation</h3>
+                        <p>Experience realistic phishing attempts in a safe environment and learn to spot the warning signs.</p>
+                        <a href="{{ url_for('simulation_login') }}" class="btn btn-primary">Try Simulation</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Educational Resources</h3>
+                        <p>Access comprehensive guides, tips, and best practices for staying safe online.</p>
+                        <a href="{{ url_for('tips') }}" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎥</div>
+                        <h3>Video Tutorials</h3>
+                        <p>Watch expert-created videos that demonstrate real phishing techniques and how to avoid them.</p>
+                        <a href="{{ url_for('videos') }}" class="btn btn-secondary">Watch Videos</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Knowledge Quiz</h3>
+                        <p>Test your understanding with our interactive quiz and track your progress over time.</p>
+                        <a href="{{ url_for('quiz') }}" class="btn btn-secondary">Take Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips Section -->
+        <section class="quick-tips">
+            <div class="container">
+                <h2>Quick Security Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-number">1</span>
+                        <h4>Verify the sender</h4>
+                        <p>Always check the email address and look for suspicious domains or typos.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-number">2</span>
+                        <h4>Check URLs carefully</h4>
+                        <p>Hover over links to see the real destination before clicking.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-number">3</span>
+                        <h4>Look for HTTPS</h4>
+                        <p>Legitimate sites use secure connections with the lock icon.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-number">4</span>
+                        <h4>Trust your instincts</h4>
+                        <p>If something feels suspicious, verify through official channels.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 PhishGuard Awareness Tool. Educational purposes only.</p>
+            <p><strong>Disclaimer:</strong> This tool is for educational purposes only. Do not use for malicious activities.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

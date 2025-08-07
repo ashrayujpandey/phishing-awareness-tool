@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Simulations - PhishGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/awareness.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🛡️ PhishGuard</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('awareness_home') }}">Home</a></li>
+                <li><a href="{{ url_for('tips') }}">Security Tips</a></li>
+                <li><a href="{{ url_for('videos') }}">Videos</a></li>
+                <li><a href="{{ url_for('quiz') }}">Quiz</a></li>
+                <li><a href="{{ url_for('simulations_page') }}" class="active">Simulations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="simulations-main">
+        <section class="simulations-hero">
+            <div class="container">
+                <h1>🎯 Phishing Simulations</h1>
+                <p>Experience realistic phishing attacks in a safe environment. Learn to recognize the warning signs!</p>
+                <div class="warning-notice">
+                    <p><strong>⚠️ Educational Purpose:</strong> These simulations are designed to teach you about phishing attacks. Your data is not actually compromised.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="simulations-content">
+            <div class="container">
+                <div class="simulation-categories">
+                    <div class="category-section">
+                        <h2>📧 Email Phishing</h2>
+                        <div class="sim-cards">
+                            <div class="sim-card">
+                                <h3>Gmail Login Phishing</h3>
+                                <p>Experience a realistic Gmail phishing attack that mimics Google's login page.</p>
+                                <div class="difficulty">Difficulty: <span class="easy">Easy</span></div>
+                                <a href="{{ url_for('simulation_login') }}" class="btn btn-danger">Start Gmail Simulation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h2>📱 Social Media Phishing</h2>
+                        <div class="sim-cards">
+                            <div class="sim-card">
+                                <h3>Facebook Phishing</h3>
+                                <p>Learn how attackers create fake Facebook login pages to steal credentials.</p>
+                                <div class="difficulty">Difficulty: <span class="medium">Medium</span></div>
+                                <a href="{{ url_for('social_media_simulation', platform='facebook') }}" class="btn btn-primary">Start Facebook Simulation</a>
+                            </div>
+                            
+                            <div class="sim-card">
+                                <h3>LinkedIn Phishing</h3>
+                                <p>Professional networks are often targeted. See how LinkedIn phishing works.</p>
+                                <div class="difficulty">Difficulty: <span class="medium">Medium</span></div>
+                                <a href="{{ url_for('social_media_simulation', platform='linkedin') }}" class="btn btn-info">Start LinkedIn Simulation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h2>🚨 Advanced Attacks</h2>
+                        <div class="sim-cards">
+                            <div class="sim-card">
+                                <h3>Urgent Security Alert</h3>
+                                <p>High-pressure attacks with countdown timers designed to create panic.</p>
+                                <div class="difficulty">Difficulty: <span class="hard">Hard</span></div>
+                                <a href="{{ url_for('urgency_attack') }}" class="btn btn-warning">Start Urgent Alert</a>
+                            </div>
+                            
+                            <div class="sim-card">
+                                <h3>Spear Phishing</h3>
+                                <p>Targeted attacks that use personal information to appear legitimate.</p>
+                                <div class="difficulty">Difficulty: <span class="hard">Hard</span></div>
+                                <a href="{{ url_for('spear_phishing', target='employee') }}" class="btn btn-dark">Start Spear Phishing</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

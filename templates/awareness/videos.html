@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Videos - PhishGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/awareness.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🛡️ PhishGuard</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('awareness_home') }}">Home</a></li>
+                <li><a href="{{ url_for('tips') }}">Security Tips</a></li>
+                <li><a href="{{ url_for('videos') }}" class="active">Videos</a></li>
+                <li><a href="{{ url_for('quiz') }}">Quiz</a></li>
+                <li><a href="{{ url_for('simulation_login') }}" class="simulation-link">Try Simulation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="videos-main">
+        <section class="videos-hero">
+            <div class="container">
+                <h1>Educational Videos</h1>
+                <p>Learn about phishing protection through expert-created video content</p>
+            </div>
+        </section>
+
+        <section class="videos-content">
+            <div class="container">
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶️</div>
+                            <img src="https://via.placeholder.com/400x225/4a90e2/ffffff?text=Video+1" alt="What is Phishing?">
+                        </div>
+                        <div class="video-info">
+                            <h3>What is Phishing?</h3>
+                            <p>Learn the basics of phishing attacks and how they work.</p>
+                            <span class="duration">5:30</span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶️</div>
+                            <img src="https://via.placeholder.com/400x225/e74c3c/ffffff?text=Video+2" alt="Email Red Flags">
+                        </div>
+                        <div class="video-info">
+                            <h3>Spotting Email Red Flags</h3>
+                            <p>Identify suspicious elements in phishing emails.</p>
+                            <span class="duration">7:45</span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶️</div>
+                            <img src="https://via.placeholder.com/400x225/27ae60/ffffff?text=Video+3" alt="URL Safety">
+                        </div>
+                        <div class="video-info">
+                            <h3>URL Safety Check</h3>
+                            <p>How to verify links before clicking them.</p>
+                            <span class="duration">4:20</span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶️</div>
+                            <img src="https://via.placeholder.com/400x225/f39c12/ffffff?text=Video+4" alt="Two-Factor Authentication">
+                        </div>
+                        <div class="video-info">
+                            <h3>Two-Factor Authentication</h3>
+                            <p>Setting up 2FA for enhanced security.</p>
+                            <span class="duration">6:15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

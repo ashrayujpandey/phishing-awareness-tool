@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Quiz - PhishGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/awareness.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🛡️ PhishGuard</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('awareness_home') }}">Home</a></li>
+                <li><a href="{{ url_for('tips') }}">Security Tips</a></li>
+                <li><a href="{{ url_for('videos') }}">Videos</a></li>
+                <li><a href="{{ url_for('quiz') }}" class="active">Quiz</a></li>
+                <li><a href="{{ url_for('simulation_login') }}" class="simulation-link">Try Simulation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="quiz-main">
+        <section class="quiz-hero">
+            <div class="container">
+                <h1>Phishing Awareness Quiz</h1>
+                <p>Test your knowledge and learn how to stay safe from phishing attacks</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <div class="container">
+                <div id="quiz-container">
+                    <!-- Quiz content will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

